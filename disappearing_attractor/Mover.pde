@@ -1,6 +1,4 @@
-// The Nature of Code
-// Daniel Shiffman
-// http://natureofcode.com
+// based on Daniel Shiffman's The Nature of Code example
 
 class Mover {
 
