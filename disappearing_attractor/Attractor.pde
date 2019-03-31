@@ -6,17 +6,15 @@ class Attractor {
   float mass;    // Mass, tied to size
   float G;       // Gravitational Constant
   PVector position;   // position
-  boolean dragging = false; // Is the object being dragged?
-  boolean rollover = false; // Is the mouse over the ellipse?
-  PVector dragOffset;  // holds the offset for when object is clicked on
   float radius;
+  float alpha = 200;
 
   Attractor() {
     position = new PVector(width/2,height/2);
     mass = 20;
     G = 1;
-    dragOffset = new PVector(0.0,0.0);
-    radius = mass*2;
+    //radius = mass*2;
+    radius = 0;
   }
 
   PVector attract(Mover m) {
@@ -33,49 +31,56 @@ class Attractor {
   void display() {
     //float dist = PVector.dist(a.position,m.position);
     if (PVector.dist(a.position, m.position) < radius + 10){
-    position.x = random(0, width);
-    position.y = random(0, height);
+    //PVector pos = new PVector(m.position.x, m.position.y);
+    position.x = random(mass*2 + 4, width - mass*2 + 4);
+    position.y = random(mass*2 + 4, height - mass*2 + 4);
+    radius = 0;
+    alpha = 10;
     }
     ellipseMode(CENTER);
-    strokeWeight(4);
+    strokeWeight(2);
     stroke(0);
-    if (dragging) fill (50);
-    else if (rollover) fill(100);
-    else fill(175,200);
+    alpha++;
+    fill(255, 0, 0, 80);
+    stroke(175, 0, 0);
+    //strokeWeight(constrain(alpha,0,5));
+    if (alpha < 1) radius = 0;
+    if (radius < mass*2) radius+=0.5;
+    if (radius == mass*2) radius = mass*2;
     ellipse(position.x,position.y,radius,radius);
  }
 
   // The methods below are for mouse interaction
-  void clicked(int mx, int my) {
-    float d = dist(mx,my,position.x,position.y);
-    if (d < mass) {
-      dragging = true;
-      dragOffset.x = position.x-mx;
-      dragOffset.y = position.y-my;
-    }
-  }
+  //void clicked(int mx, int my) {
+  //  float d = dist(mx,my,position.x,position.y);
+  //  if (d < mass) {
+  //    dragging = true;
+  //    dragOffset.x = position.x-mx;
+  //    dragOffset.y = position.y-my;
+  //  }
+  //}
 
-  void hover(int mx, int my) {
-    float d = dist(mx,my,position.x,position.y);
-    if (d < mass) {
-      rollover = true;
-    } 
-    else {
-      rollover = false;
-    }
-  }
+  //void hover(int mx, int my) {
+  //  float d = dist(mx,my,position.x,position.y);
+  //  if (d < mass) {
+  //    rollover = true;
+  //  } 
+  //  else {
+  //    rollover = false;
+  //  }
+  //}
 
-  void stopDragging() {
-    dragging = false;
-  }
+  //void stopDragging() {
+  //  dragging = false;
+  //}
 
 
 
-  void drag() {
-    if (dragging) {
-      position.x = mouseX + dragOffset.x;
-      position.y = mouseY + dragOffset.y;
-    }
-  }
+  //void drag() {
+  //  if (dragging) {
+  //    position.x = mouseX + dragOffset.x;
+  //    position.y = mouseY + dragOffset.y;
+  //  }
+  //}
 
 }
