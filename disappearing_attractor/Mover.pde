@@ -6,15 +6,15 @@ class Mover {
   PVector velocity;
   PVector acceleration;
   float mass;
-  float radius = 15;
-  float maxSpeed = 5;
+  float radius;
+  float speed = 1;
 
   Mover() {
     position = new PVector(400,50);
     velocity = new PVector(1,0);
     acceleration = new PVector(0,0);
     mass = 0.5;
-    //radius = 15;
+    radius = 15;
   }
   
   void applyForce(PVector force) {
@@ -25,27 +25,16 @@ class Mover {
   void update() {
     velocity.add(acceleration);
     position.add(velocity);
-    velocity.limit(maxSpeed);
+    velocity.limit(speed);
     acceleration.mult(0);
   }
 
   void display() {
-    stroke(100, 100, 255);
+    stroke(0);
     strokeWeight(2);
-    fill(0, 50, 127, 80);
+    fill(127);
     ellipse(position.x,position.y,radius,radius);
   }
-  
-   // Calculate a force to push particle away from repeller
-  PVector move(Particle p) {
-    PVector dir = PVector.sub(position,p.position);      // Calculate direction of force
-    float d = dir.mag();                       // Distance between objects
-    dir.normalize();                           // Normalize vector (distance doesn't matter here, we just want this vector for direction)
-    d = constrain(d,5,100);                    // Keep distance within a reasonable range
-    float force = -1 / (d * d);            // Repelling force is inversely proportional to distance
-    dir.mult(force);                           // Get force vector --> magnitude * direction
-    return dir;
-  }  
 
   void checkEdges() {
 
