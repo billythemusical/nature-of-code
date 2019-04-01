@@ -94,7 +94,7 @@ function draw() {
   info.html("Generation #: " + population.getGenerations() + "<br>" + "Cycles left: " + (lifetime - lifeCounter));
 
   if (mouseIsPressed && radio.value() == 1) {
-    resetSketch(0.3, 200, 24);
+    resetSketch(0.3, 200, 30);
 
   } else if (mouseIsPressed && radio.value() == 2) {
     resetSketch(0.05, 100, 48);
@@ -111,7 +111,7 @@ function draw() {
 function resetSketch(mutR, popNum, fRate) {
   // The number of cycles we will allow a generation to live
   // print(radioNum, radio.value());
-  // frameRate(fRate);
+  frameRate(fRate);
 
   //   lifetime = height;
 
