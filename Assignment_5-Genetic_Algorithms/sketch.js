@@ -91,7 +91,7 @@ function draw() {
   // Display some info
   fill(0);
 
-  info.html("You must click each the button twice.  Clicking the mouse will clear the screen."  + "<br>" "Generation #: " + population.getGenerations() + "<br>" + "Cycles left: " + (lifetime - lifeCounter));
+  info.html("You must click each the button twice.  Clicking the mouse will clear the screen."  + "<br>" + "Generation #: " + population.getGenerations() + "<br>" + "Cycles left: " + (lifetime - lifeCounter));
 
   if (mouseIsPressed && radio.value() == 1) {
     resetSketch(0.3, 200, 30);
