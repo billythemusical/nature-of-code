@@ -100,7 +100,7 @@ function draw() {
     resetSketch(0.05, 100, 48);
 
   } else if (mouseIsPressed && radio.value() == 3) {
-    resetSketch(0.05, 50, 60);
+    resetSketch(0.01, 50, 60);
 
   }
   // } else if (radio.value() == "") {
