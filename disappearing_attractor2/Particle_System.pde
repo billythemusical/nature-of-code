@@ -12,15 +12,18 @@ class ParticleSystem {
 
   void addParticle() {
 
-  int wideCount = width / unit;
-  int heightCount = height / unit;
+  //int wideCount = width / unit;
+  int wideCount = 50;
+  //int heightCount = height / unit;
+  int heightCount = 50;
   count = wideCount * heightCount;
   p = new Particle[count]; 
   int index = 0;
-    for(int x = 0; x < wideCount; x++) {
-      for(int y = 0; y < heightCount; y++) {   
+    for(int x = 0; x < width/wideCount; x++) {
+      for(int y = 0; y < height/heightCount; y++) {   
         particles.add(new Particle(wideCount*x + random(-width/32,width/32), 
                                         heightCount*y + random(-height/32,height/32)));
+        //particles.add(new Particle(wideCount*x, heightCount*y));
       }
     }
   }
@@ -46,8 +49,25 @@ class ParticleSystem {
       //spring.mult(-1 * k * stretch);
       //p.applyForce(spring);
       }
+      PVector friction = p.velocity.get();
+      float c = 0.01;
+      friction.mult(-1);
+      friction.normalize();
+      friction.mult(c);
+      p.applyForce(friction);
     }
   }
+  void friction (Particle p) {
+    //for 
+      //PVector frictionPart = p.velocity.get();
+      //float c = 0.1;
+      //frictionPart.mult(-1);
+      //frictionPart.normalize();
+      //frictionPart.mult(c);
+      //p.applyForce(frictionPart);
+    }
+  
+  
   
   void run() {
     for (int i = particles.size()-1; i >= 0; i--) {
