@@ -38,7 +38,7 @@ class ParticleSystem {
   void repel(Mover mov) {
     for (Particle p: particles) {
       float d = p.position.dist(m.position);
-      if (d < p.radius) {
+      if (d < (p.radius/2 + m.radius/2)) {
       PVector force = mov.repel(p);        
       p.applyForce(force);
       //PVector spring = PVector.sub(p.position, p.origin);

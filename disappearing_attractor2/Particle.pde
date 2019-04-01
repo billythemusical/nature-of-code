@@ -9,7 +9,7 @@ class Particle extends Mover {
     velocity = new PVector(0,0);
     acceleration = new PVector(0,0);
     origin = position;
-    mass = 2;
+    mass = 4;
     radius = 12;
   }
   

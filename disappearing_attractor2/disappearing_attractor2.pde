@@ -18,7 +18,11 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  pushMatrix();
+  colorMode(HSB);
+  background(210,20,255);
+  colorMode(RGB);
+  popMatrix();
   ps.run();
   
   PVector force = a.attract(m);

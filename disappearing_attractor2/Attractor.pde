@@ -30,7 +30,7 @@ class Attractor {
   // Method to display
   void display() {
     //float dist = PVector.dist(a.position,m.position);
-    if (PVector.dist(a.position, m.position) < radius + 10){
+    if (PVector.dist(a.position, m.position) < radius + (random(7.5, 12))) {
     //PVector pos = new PVector(m.position.x, m.position.y);
     position.x = random(mass*2 + 4, width - mass*2 + 4);
     position.y = random(mass*2 + 4, height - mass*2 + 4);

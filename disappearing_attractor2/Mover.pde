@@ -30,9 +30,10 @@ class Mover {
   }
 
   void display() {
-    stroke(100, 100, 255);
+    stroke(100, 100, 200);
     strokeWeight(2);
     fill(0, 50, 127, 80);
+    //fill(50, 50, 50, 80);
     ellipse(position.x,position.y,radius,radius);
   }
   
