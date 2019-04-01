@@ -1,14 +1,14 @@
-//We could add gasoline grades
-//as DOM choices 87, 89, 93
-//low grade the rockets die out, 
-//mid, 
-//high, they go straight to the target
+//Added gasoline grades selectable with radio buttons.
+//87 - lowest grade, slowest and dumbest rockets. 
+//89 - middle grade
+//93 - high grade, fastest and smartest rockets.
 
-// The Nature of Code
-// Daniel Shiffman
+// Based on The Nature of Code example 
+//"Simple Smart Rockets w/ Genetic Algorithms 
+//by Daniel Shiffman.
 // http://natureofcode.com
 
-// Smart Rockets w/ Genetic Algorithms
+// 
 
 // Each Rocket's DNA is an array of p5.Vectors
 // Each p5.Vector acts as a force for each frame of animation
