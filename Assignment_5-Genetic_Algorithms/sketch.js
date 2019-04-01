@@ -34,9 +34,12 @@ let info;
 //vars for imgs
 let box87, box89, box93, radio, popRadio;
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
 
 function setup() {
-  createCanvas(640, 360);
+  createCanvas(windowWidth, windowHeight);
 
 
   lifetime = height;
