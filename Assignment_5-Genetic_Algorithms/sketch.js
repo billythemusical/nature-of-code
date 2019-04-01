@@ -91,45 +91,21 @@ function draw() {
   // Display some info
   fill(0);
 
-  info.html("Generation #: " + population.getGenerations() + "<br>" + "Cycles left: " + (lifetime - lifeCounter));
+  info.html("You must click each the button twice.  Clicking the mouse will clear the screen."  + "<br>" "Generation #: " + population.getGenerations() + "<br>" + "Cycles left: " + (lifetime - lifeCounter));
 
   if (mouseIsPressed && radio.value() == 1) {
     resetSketch(0.3, 200, 30);
-
   } else if (mouseIsPressed && radio.value() == 2) {
     resetSketch(0.05, 100, 48);
-
   } else if (mouseIsPressed && radio.value() == 3) {
     resetSketch(0.01, 50, 60);
-
   }
-  // } else if (radio.value() == "") {
-  //   resetSketch(0.01, 200, 60);
-  // }
 }
 
 function resetSketch(mutR, popNum, fRate) {
-  // The number of cycles we will allow a generation to live
-  // print(radioNum, radio.value());
   frameRate(fRate);
-
-  //   lifetime = height;
-
-  //   // Initialize variables
-  //   lifeCounter = 0;
-
-  //   target = createVector(width / 2, 24);
-
   // Create a population with a mutation rate, and population max
   let mutationRate;
   mutationRate = mutR;
   population = new Population(mutationRate, popNum);
-
 }
-
-// Move the target if the mouse is pressed
-// System will adapt to new target
-// function mousePressed() {
-//   target.x = mouseX;
-//   target.y = mouseY;
-// }
