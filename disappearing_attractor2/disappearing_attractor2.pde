@@ -44,5 +44,5 @@ void draw() {
   
   a.display();
   m.display();
-  
+  saveFrame("line-######.png");
 }

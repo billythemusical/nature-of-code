@@ -1,0 +1,49 @@
+# Neural Network / ML Design Exercise
+
+## Scenario
+
+Describe the scenario, what "job" will the neural network do in the context of a software application?
+
+<i>It's street cleaning day on my block.  I've moved my car the evening before and would like to move it back as soon as possible while avoiding a ticket.  I need to know two things:
+1. Did the parking attendant already pass by yet?  
+2. Did the street sweeper also pass by?  
+If I move it back too soon, I risk getting a ticket and blocking the street sweeper.  I also don't want to wait the full time as  most of the spots will be taken before then and I also have places to be...</i>  
+
+## Problem type
+
+1. Is this a "classification" problem? What are the labels?
+<del>2. Is this a "regression" problem?</del>
+
+<i> 1. A classification problem.  We need a camera that can watch the street on the hour of street cleaning and discern between a time to "move" the car and "park" the car, the latter being after the parking attendant's white car and the street sweeper have both passed.  There could also be a sound component for the "park" switch as the street sweeper has a characteristic high-mid to high frequency sound. </i>
+
+## Learning
+
+What approach will be used to train the model? 
+
+1. Assuming supervised learning, what is the training dataset and how is it labeled? 
+
+<i>The data set for "move" could be all the hours of the week during which street sweeping would take place, but has not.  You could also include all the days of the week as "move" as well to give more data on this end, even though the street cleaning only is relevant for the two days of the week pertaining to your side of the street.  
+
+The data set for "park" would only be the frames in which first the attendant passes by, which is usually in a white car with particular decals.  Our streen happens to be the first street on the route, as far as we can tell.  Shortly afterwards, usually about 15-30 minutes, the street sweeper will pass.  The user would simply review the footage for each day and train the model on the frames where the parking attendant car and sweeper passed by to learn these conditions.  
+
+Then... 
+
+if (street cleaning day) {
+            if (time of day) {
+                if (parking attendant car passed && street sweeper passed) {
+                         "move" = "park";
+                         sendEmail(user@email.com, "safe to park");
+                     }
+                }
+            }
+
+}
+</i>
+
+<del>2. If this is a "reinforcement learning"-style problem, how will you "reward" the network. Examples might be a player's score for a game or how long an agent survives in an environment.</del>
+
+## Architecture
+
+Describe, in informal terms, the architecture of the model. What are the inputs and what are the outputs?
+
+<i> The inputs would be the frames of the camera and the outputs would be the conditions for "normal", "attendant car", "street sweeper".  If the model could recognize these three conditions, then we would be able to achieve our goal of knowing when we can move our car back safely. </i>
